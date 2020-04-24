@@ -19,8 +19,8 @@ const { initPassport, authenticate } = require("./config/passport");
 initPassport(app, User);
 
 app.post("/auth/login", (req, res) => {
-  const { email, password } = req.body;
-  User.findOne({ email })
+  const { username, password } = req.body;
+  User.findOne({ username })
     .then(user => {
       if (user) {
         return user.verifyPassword(password).then(isVerified => {
@@ -38,27 +38,29 @@ app.post("/auth/login", (req, res) => {
     });
 });
 
-app.post("/api/users", (req, res) => {
-  const { email, password } = req.body;
-  User.create({ email, password })
-    .then(user => res.end())
-    .catch(error => {
-      const DUPLICATE_KEY_ERROR_CODE = 11000;
-      const { name, code, path } = error;
-      if (name === "MongoError" && code === DUPLICATE_KEY_ERROR_CODE) {
-        res
-          .status(BAD_REQUEST)
-          .send("Email invalid or account already exists.");
-      }
-      if (name === "ValidationError") {
-        res.status(BAD_REQUEST).send("Invalid email or password format.");
-      }
-      if (name === "Error" && error.message) {
-        res.status(BAD_REQUEST).send(error.message);
-      }
-      res.status(SERVER_ERROR).end();
-    });
-});
+// app.post("/api/users", (req, res) => {
+//   const { email, password } = req.body;
+//   console.log(email, password);
+//   User.create({ email, password })
+//     .then((user) => res.end())
+//     .catch((error) => {
+//       console.log(error);
+//       const DUPLICATE_KEY_ERROR_CODE = 11000;
+//       const { name, code, path } = error;
+//       if (name === "MongoError" && code === DUPLICATE_KEY_ERROR_CODE) {
+//         res
+//           .status(BAD_REQUEST)
+//           .send("Email invalid or account already exists.");
+//       }
+//       if (name === "ValidationError") {
+//         res.status(BAD_REQUEST).send("Invalid email or password format.");
+//       }
+//       if (name === "Error" && error.message) {
+//         res.status(BAD_REQUEST).send(error.message);
+//       }
+//       res.status(SERVER_ERROR).end();
+//     });
+// });
 
 app.get("/api/users/:id", authenticate(), (req, res) => {
   // prevent logged in user from accessing other user accounts

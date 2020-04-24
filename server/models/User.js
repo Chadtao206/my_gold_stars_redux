@@ -7,17 +7,31 @@ const { Schema } = mongoose;
 const { Types } = Schema;
 
 const userSchema = new Schema({
-  email: {
+  username: {
     type: String,
     unique: true,
     required: true,
-    trim: true,
-    // https://tylermcginnis.com/validate-email-address-javascript/
-    match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    trim: true
+  },
+  fullname: {
+    type: String,
+    unique: true
   },
   password: {
     type: String,
     required: true
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
+  stars: {
+    type: Number,
+    default: 0
+  },
+  badges: {
+    type: Array,
+    default: []
   }
 });
 
@@ -25,9 +39,9 @@ userSchema.pre("save", function() {
   if (!this.isModified("password")) {
     return Promise.resolve();
   }
-  if (this.password.length < 12) {
+  if (this.password.length < 3) {
     return Promise.reject(
-      new Error("Password must have at least 12 characters")
+      new Error("Password must have at least 4 characters")
     );
   }
   return bcrypt.hash(this.password, SALT_ROUNDS).then(hash => {
