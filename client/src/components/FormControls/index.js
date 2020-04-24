@@ -11,10 +11,10 @@ export const BaseInputGroup = ({ labelText, id, ...rest }) => (
 
 export const EmailInputGroup = props => (
   <BaseInputGroup
-    labelText={"Email address"}
-    id="email"
-    name="email"
-    type="email"
+    labelText={"Username"}
+    id="username"
+    name="username"
+    type="text"
     className="form-control"
     {...props}
   />

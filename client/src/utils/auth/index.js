@@ -75,9 +75,9 @@ export const AuthProvider = props => {
   };
   useEffect(initAuth, []);
 
-  const login = (email, password) => {
+  const login = (username, password) => {
     dispatch({ type: PENDING });
-    return AuthService.login(email, password)
+    return AuthService.login(username, password)
       .then(() => AuthService.user())
       .then(user => dispatch({ type: LOGIN_SUCCESS, user }))
       .catch(error => {
@@ -89,24 +89,23 @@ export const AuthProvider = props => {
       });
   };
 
-  const signup = (email, password) => {
-    dispatch({ type: PENDING });
-    AuthService.signup(email, password)
-      .then(() => login(email, password))
-      .catch(error => {
-        console.log(error);
-        dispatch({
-          type: ERROR,
-          error: "Invalid email and password or account already exists."
-        });
-      });
-  };
+  // const signup = (email, password) => {
+  //   dispatch({ type: PENDING });
+  //   AuthService.signup(email, password)
+  //     .then(() => login(email, password))
+  //     .catch(error => {
+  //       console.log(error);
+  //       dispatch({
+  //         type: ERROR,
+  //         error: "Invalid email and password or account already exists."
+  //       });
+  //     });
+  // };
 
   const value = {
     ...state,
     login,
-    logout,
-    signup
+    logout
   };
 
   return <AuthContext.Provider value={value} {...props} />;

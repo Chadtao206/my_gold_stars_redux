@@ -24,12 +24,8 @@ export const addAuthHeader = config => {
   return config;
 };
 
-export const signup = (email, password) => {
-  return axios.post("/api/users", { email, password });
-};
-
-export const login = (email, password) => {
-  return axios.post("/auth/login", { email, password }).then(res => {
+export const login = (username, password) => {
+  return axios.post("/auth/login", { username, password }).then(res => {
     token.set(res.data.token);
     return token.payload();
   });

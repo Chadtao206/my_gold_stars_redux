@@ -11,11 +11,11 @@ import {
 
 const Login = () => {
   const { login, isPending, isLoggedIn, error } = useAuth();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = e => {
     e.preventDefault();
-    login(email, password);
+    login(username, password);
   };
 
   if (isLoggedIn) {
@@ -32,8 +32,8 @@ const Login = () => {
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
         <EmailInputGroup
           required
-          value={email}
-          onChange={e => setEmail(e.target.value)}
+          value={username}
+          onChange={e => setUsername(e.target.value)}
         />
         <PasswordInputGroup
           required
