@@ -4,9 +4,15 @@ import { useAuth } from "../../utils/auth";
 export default () => {
   const { user, logout } = useAuth();
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light sticky-top"
+      style={{ justifyContent: "space-around" }}
+    >
       <a class="navbar-brand" href="/">
-        Navbar
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/1024px-Gold_Star.svg.png"
+          style={{ height: "20px" }}
+        />
       </a>
       <button
         class="navbar-toggler"
@@ -30,8 +36,11 @@ export default () => {
           <a class="nav-item nav-link btn btn-outline-success ml-2" href="#">
             Bootcamp Resources
           </a>
+          <a class="nav-item ml-5 mr-5" href="#">
+            <h1 className="h3">Welcome {user.username}!</h1>
+          </a>
           <a
-            class="nav-item nav-link btn btn-outline-success ml-2"
+            class="nav-item nav-link btn btn-outline-success ml-5"
             href="#"
             onClick={logout}
           >
