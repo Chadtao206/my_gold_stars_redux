@@ -6,7 +6,9 @@ const FullPageSpinner = ({ text = "Loading..." }) => (
       <div className="spinner-border" role="status">
         <span className="sr-only">{text}</span>
       </div>
-      <h1 className="mt-3 h4 font-weight-normal">{text}</h1>
+      <h1 className="mt-3 h4 font-weight-normal" style={{ color: "white" }}>
+        {text}
+      </h1>
     </div>
   </div>
 );

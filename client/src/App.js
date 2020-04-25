@@ -14,12 +14,6 @@ function App() {
           <ProtectedRoute exact path="/" onFailureRedirectToPath="/login">
             <Home />
           </ProtectedRoute>
-          <ProtectedRoute exact path="/admin" onFailureRedirectToPath="/login">
-            <Skills />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/skills" onFailureRedirectToPath="/login">
-            <Skills />
-          </ProtectedRoute>
           <Route exact path="/login">
             <Login />
           </Route>

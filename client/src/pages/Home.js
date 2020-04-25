@@ -1,19 +1,22 @@
-import React from "react";
-import { useAuth } from "../utils/auth";
+import React, { useState } from "react";
 import Nav from "../components/Nav";
+import Skills from "../pages/Skills";
+import Resources from "../pages/Resources";
+import Goldstars from "../pages/Goldstars";
 const Home = () => {
-  const { user, logout } = useAuth();
-
+  const [comp, setComp] = useState("");
   return (
     <>
-      <Nav />
-      <div className="container">
-        <h1 className="h3">Welcome {user ? user.username : ""}!</h1>
-        <p>
-          Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast
-          yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin
-        </p>
-      </div>
+      <Nav setComp={setComp} />
+      {comp === "skills" ? (
+        <Skills />
+      ) : comp === "stars" ? (
+        <Goldstars />
+      ) : comp === "resources" ? (
+        <Resources />
+      ) : (
+        <p>Welcome to my goldstars</p>
+      )}
     </>
   );
 };

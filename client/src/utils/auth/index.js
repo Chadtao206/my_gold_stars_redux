@@ -63,6 +63,7 @@ export const AuthProvider = props => {
 
   // initialize auth state when auth provider is first mounted
   const initAuth = () => {
+    console.log("provider mounting");
     if (AuthService.isLoggedIn()) {
       dispatch({ type: PENDING });
       AuthService.user()

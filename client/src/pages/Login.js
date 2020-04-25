@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-
 import { useAuth } from "../utils/auth";
 import FullPageSpinner from "../components/FullPageSpinner";
 import LoginAlert from "../components/LoginAlert";
@@ -8,6 +7,7 @@ import {
   EmailInputGroup,
   PasswordInputGroup
 } from "../components/FormControls";
+import "./Login.css";
 
 const Login = () => {
   const { login, isPending, isLoggedIn, error } = useAuth();
@@ -27,7 +27,11 @@ const Login = () => {
   }
 
   return (
-    <div className="container vh-100 text-center d-flex align-items-center flex-column">
+    <div className="contain vh-100 text-center d-flex align-items-center flex-column">
+      <div class="jumbotron mt-4">
+        <h1 class="display-4">Welcome to My Gold Stars App</h1>
+        <p class="lead">Please log in using the credentials provided to you.</p>
+      </div>
       <form className="form-login m-auto" onSubmit={handleSubmit}>
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
         <EmailInputGroup
