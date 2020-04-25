@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import { useAuth } from "../utils/auth";
 import FullPageSpinner from "../components/FullPageSpinner";
@@ -43,9 +43,6 @@ const Login = () => {
         <button type="submit" className="my-3 btn btn-lg btn-primary btn-block">
           Log In
         </button>
-        <div>
-          <Link to="/signup">Create an account</Link>
-        </div>
         {error && <LoginAlert error={error} />}
       </form>
     </div>

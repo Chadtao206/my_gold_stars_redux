@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <Nav />
       <div className="container">
-        <h1 className="h3">Welcome {user.username}!</h1>
+        <h1 className="h3">Welcome {user ? user.username : ""}!</h1>
         <p>
           Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast
           yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin

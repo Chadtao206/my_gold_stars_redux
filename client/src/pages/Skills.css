@@ -1,0 +1,10 @@
+iframe {
+  overflow: hidden;
+}
+
+iframe ::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}

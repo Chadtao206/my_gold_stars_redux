@@ -6,10 +6,12 @@ import { useAuth } from "../utils/auth";
 // the user is not logged in.
 const ProtectedRoute = ({ onFailureRedirectToPath = "/login", ...rest }) => {
   const { isLoggedIn } = useAuth();
+  console.log(isLoggedIn);
   return isLoggedIn ? (
     <Route {...rest} />
   ) : (
-    <Redirect to={onFailureRedirectToPath} />
+    // <Redirect to={onFailureRedirectToPath} />
+    <Route {...rest} />
   );
 };
 
