@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./utils/auth";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Skills from "./pages/Skills";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
