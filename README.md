@@ -1,6 +1,4 @@
-# MERN-JWT Boilerplate
 
-This application is intended as a starter for MERN applications. The tools used include Create React App, JWT, and Passport.
 
 ## Setup and requirements
 
