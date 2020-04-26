@@ -18,7 +18,7 @@ const Home = () => {
       ) : comp === "resources" ? (
         <Resources />
       ) : comp === "projects" ? (
-        <Projects />
+        <Projects user={user} />
       ) : (
         <p>Welcome to my goldstars</p>
       )}
