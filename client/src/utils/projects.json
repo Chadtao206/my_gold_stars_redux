@@ -4,7 +4,14 @@
       "name": "Slapps",
       "repo": "https://github.com/cjackson152/Slapps",
       "url": "https://cjackson152.github.io/Slapps/index.html",
-      "contributors": ["Carolynttnguyen", "cjackson152", "mellogelo"],
+      "contributors": [
+        {
+          "handle": "Carolynttnguyen",
+          "url": "https://github.com/carolynttnguyen"
+        },
+        { "handle": "cjackson152", "url": "https://github.com/cjackson152" },
+        { "handle": "mellogelo", "url": "https://github.com/mellogelo" }
+      ],
       "description": "No description yet",
       "img": ""
     },
@@ -12,7 +19,14 @@
       "name": "Food Connect 4 U",
       "repo": "https://github.com/jjesusteran-mori/FoodConnect4U",
       "url": "https://jjesusteran-mori.github.io/FoodConnect4U/",
-      "contributors": ["lfreeman0820", "rogelis", "jjesusteran-mori"],
+      "contributors": [
+        { "handle": "lfreeman0820", "url": "https://github.com/lfreeman0820" },
+        { "handle": "rogelis", "url": "https://github.com/rogelis" },
+        {
+          "handle": "jjesusteran-mori",
+          "url": "https://github.com/jjesusteran-mori"
+        }
+      ],
       "description": "No description yet",
       "img": ""
     },
@@ -20,7 +34,12 @@
       "name": "Sagarmatha",
       "repo": "https://github.com/chikeobinjaka/sagarmatha",
       "url": "https://chikeobinjaka.github.io/sagarmatha/",
-      "contributors": ["chikeobi", "kylejboland", "schaudhary", "Sederickbc"],
+      "contributors": [
+        { "handle": "chikeobi", "url": "https://github.com/chikeobinjaka" },
+        { "handle": "kylejboland", "url": "https://github.com/kylejboland" },
+        { "handle": "schaudhary", "url": "https://github.com/schaudhary4657" },
+        { "handle": "Sederickbc", "url": "https://github.com/Sederickbc" }
+      ],
       "description": "No description yet",
       "img": ""
     },
@@ -28,7 +47,11 @@
       "name": "TL;DS",
       "repo": "https://github.com/kennyqng/project-01",
       "url": "https://kennyqng.github.io/project-01/",
-      "contributors": ["kennyqng", "EvanDobalian", "BrandonH91"],
+      "contributors": [
+        { "handle": "kennyqng", "url": "https://github.com/kennyqng" },
+        { "handle": "EvanDobalian", "url": "https://github.com/EvanDobalian" },
+        { "handle": "BrandonH91", "url": "https://github.com/BrandonH91" }
+      ],
       "description": "No description yet",
       "img": ""
     },
@@ -36,7 +59,11 @@
       "name": "Hollywood Holidays",
       "repo": "https://github.com/domenikos5/Hollywood-Holidays",
       "url": "https://domenikos5.github.io/Hollywood-Holidays/",
-      "contributors": ["nicolechai", "domenikos", "leole"],
+      "contributors": [
+        { "handle": "nicolechai", "url": "https://github.com/nicolechai1028" },
+        { "handle": "domenikos", "url": "https://github.com/domenikos5" },
+        { "handle": "leole", "url": "https://github.com/leoNLe" }
+      ],
       "description": "No description yet",
       "img": ""
     },
@@ -44,7 +71,11 @@
       "name": "Keep My Mind Busy",
       "repo": "https://github.com/wronghandedryan/ProjectStayBusy",
       "url": "https://wronghandedryan.github.io/ProjectStayBusy/",
-      "contributors": ["tthai4", "oboyle", "Lolofosho"],
+      "contributors": [
+        { "handle": "tthai4", "url": "https://github.com/tthai1028" },
+        { "handle": "oboyle", "url": "https://github.com/wronghandedryan" },
+        { "handle": "Lolofosho", "url": "https://github.com/laurengarelick" }
+      ],
       "description": "No description yet",
       "img": ""
     },
@@ -52,7 +83,11 @@
       "name": "In-or-Out",
       "repo": "https://github.com/TyRodriguez/In-Or-Out.io",
       "url": "https://tyrodriguez.github.io/In-Or-Out.io/",
-      "contributors": ["arpita_desai", "jayjkim", "TRodriguez"],
+      "contributors": [
+        { "handle": "arpita_desai", "url": "https://github.com/arpita-desai" },
+        { "handle": "jayjkim", "url": "https://github.com/jaykim92" },
+        { "handle": "TRodriguez", "url": "https://github.com/TyRodriguez" }
+      ],
       "description": "No description yet",
       "img": ""
     }
