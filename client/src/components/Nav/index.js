@@ -39,7 +39,14 @@ export default ({ setComp }) => {
             className="nav-item nav-link btn btn-outline-success"
             onClick={() => setComp("stars")}
           >
-            My Gold Stars
+            My Gold Stars{" "}
+            <span className="badge badge-primary">{user.stars}</span>
+          </button>
+          <button
+            className="nav-item nav-link btn btn-outline-success"
+            onClick={() => setComp("projects")}
+          >
+            Bootcamp Projects
           </button>
           <button
             className="nav-item nav-link btn btn-outline-success"
@@ -53,7 +60,7 @@ export default ({ setComp }) => {
           >
             Web Skills
           </button>
-          <h1 className="h3 nav-item ml-5 mr-5">Welcome {user.username}!</h1>
+          <h1 className="h3 nav-item ml-5 mr-5">Welcome {user.fullname}!</h1>
           <button
             className="nav-item nav-link btn btn-outline-warning"
             onClick={logout}
