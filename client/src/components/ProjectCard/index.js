@@ -10,7 +10,7 @@ export default ({ project, owner }) => {
   const [show, setShow] = useState(false);
   return (
     <>
-      <EditModal setShow={setShow} show={show} />
+      <EditModal setShow={setShow} show={show} project={project} />
       <div className="flip-card col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-3">
         <div className="flip-card-inner" style={{ height: "40vh" }}>
           {/* front of card */}

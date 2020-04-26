@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
-export default ({ setShow, show }) => {
+export default ({ setShow, show, project }) => {
+  const [desc, setDesc] = useState("");
+  const handleSave = () => {
+    setShow(false);
+  };
   return (
     <Modal
       show={show}
@@ -12,18 +17,21 @@ export default ({ setShow, show }) => {
     >
       <Modal.Header onClick={() => setShow(false)} closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+          {project.name}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Update your project description</Form.Label>
+          <Form.Control
+            onChange={e => setDesc(e.target.value)}
+            as="textarea"
+            rows="3"
+          />
+        </Form.Group>
       </Modal.Body>
       <Modal.Footer>
+        {desc ? <Button onClick={() => handleSave()}>Save Changes</Button> : ""}
         <Button onClick={() => setShow(false)}>Close</Button>
       </Modal.Footer>
     </Modal>
