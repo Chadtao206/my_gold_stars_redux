@@ -7,9 +7,9 @@ export default ({ setComp }) => {
   const { user, logout } = useAuth();
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-      <a className="navbar-brand" href="/">
-        <img id="star" src={star} style={{ height: "30px" }} alt="goldstar" />
-      </a>
+      <span className="navbar-brand">
+        <img id="star" src={star} style={{ height: "40px" }} alt="goldstar" />
+      </span>
       <button
         className="navbar-toggler"
         type="button"
@@ -40,7 +40,9 @@ export default ({ setComp }) => {
             onClick={() => setComp("stars")}
           >
             My Gold Stars{" "}
-            <span className="badge badge-primary">{user.stars}</span>
+            <span className="badge badge-dark" style={{ color: "gold" }}>
+              {user.stars}
+            </span>
           </button>
           <button
             className="nav-item nav-link btn btn-outline-success"
