@@ -9,6 +9,7 @@ const {
   NOT_FOUND,
   SERVER_ERROR
 } = require("./utils/http-status-codes");
+const router = require("./routes");
 
 const app = express();
 app.set("port", process.env.PORT || 3001);
@@ -74,6 +75,8 @@ app.get("/api/users/:id", authenticate(), (req, res) => {
     return res.status(NOT_FOUND).send("User not found");
   });
 });
+
+app.use(router);
 
 // Serve static assets in production only
 if (process.env.NODE_ENV === "production") {
