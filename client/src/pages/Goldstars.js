@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Admin from "./AdminDash";
+import Student from "./StudentDash";
 
 export default ({ admin }) => {
-  useEffect(() => {}, []);
-  return (
-    <>
-      <h1>Gold Stars Store and Award Badges Coming Soon!</h1>
-    </>
-  );
+  return <>{admin ? <Admin /> : <Student />}</>;
 };
