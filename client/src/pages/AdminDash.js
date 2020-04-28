@@ -2,20 +2,26 @@ import React, { useEffect, useState } from "react";
 import { getUsers, addStar, removeStar } from "../utils/API";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
+import TRow from "../components/TRow";
 
 export default () => {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [sortedUsers, setSortedUsers] = useState({ sorted: [] });
   const [sortOrder, setSortOrder] = useState(false);
+
   useEffect(() => {
+    handleGetUsers();
+  }, []);
+
+  const handleGetUsers = () => {
     getUsers().then(({ data }) => {
       const mod = data.sort((a, b) => (a.isAdmin ? -1 : b.isAdmin ? 1 : 0));
       setUsers(mod);
       setFilteredUsers(mod);
       setSortedUsers({ sorted: mod });
     });
-  }, []);
+  };
 
   const handleFilter = val => {
     const filtered = users.filter(
@@ -45,8 +51,8 @@ export default () => {
     setSortedUsers({ sorted: sorted });
   };
 
-  const add = id => addStar(id).then(data => console.log(data));
-  const remove = id => removeStar(id).then(data => console.log(data));
+  const handleAdd = id => addStar(id).then(() => handleGetUsers());
+  const handleRemove = id => removeStar(id).then(() => handleGetUsers());
 
   return (
     <>
@@ -78,30 +84,7 @@ export default () => {
             </thead>
             <tbody>
               {sortedUsers.sorted.map(a => (
-                <tr key={a._id}>
-                  <td>{a.username}</td>
-                  <td>{a.fullname}</td>
-                  <td>{a.isAdmin ? "Admin" : "Student"}</td>
-                  <td>{a.stars}</td>
-                  <td style={{ width: "10vw" }}>
-                    <button
-                      onClick={() => add(a._id)}
-                      className="btn btn-secondary"
-                      style={{ width: "100%" }}
-                    >
-                      Add Star
-                    </button>
-                  </td>
-                  <td style={{ width: "10vw" }}>
-                    <button
-                      style={{ width: "100%" }}
-                      onClick={() => remove(a._id)}
-                      className="btn btn-secondary"
-                    >
-                      Remove Star
-                    </button>
-                  </td>
-                </tr>
+                <TRow a={a} handleAdd={handleAdd} handleRemove={handleRemove} />
               ))}
             </tbody>
           </Table>
