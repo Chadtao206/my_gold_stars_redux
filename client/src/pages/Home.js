@@ -6,7 +6,7 @@ import Resources from "../pages/Resources";
 import Goldstars from "../pages/Goldstars";
 import Projects from "../pages/Projects";
 const Home = () => {
-  const [comp, setComp] = useState("");
+  const [comp, setComp] = useState("stars");
   const { user } = useAuth();
   return (
     <>
