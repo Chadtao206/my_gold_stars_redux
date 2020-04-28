@@ -60,7 +60,8 @@ export default () => {
         style={{
           height: "contain",
           background:
-            "linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)"
+            "linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)",
+          paddingBottom: "5vh"
         }}
       >
         <div className="container">
@@ -84,7 +85,12 @@ export default () => {
             </thead>
             <tbody>
               {sortedUsers.sorted.map(a => (
-                <TRow a={a} handleAdd={handleAdd} handleRemove={handleRemove} />
+                <TRow
+                  a={a}
+                  handleAdd={handleAdd}
+                  handleRemove={handleRemove}
+                  key={a.username}
+                />
               ))}
             </tbody>
           </Table>

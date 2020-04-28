@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect(process.env.MONGODB_URI || "gold_stars_db", {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/gold_star_db",
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  }
+);
 
 const seeds = [
   {
