@@ -4,7 +4,6 @@ const mongoose = require("../config/mongoose");
 const SALT_ROUNDS = 12;
 
 const { Schema } = mongoose;
-const { Types } = Schema;
 
 const userSchema = new Schema({
   username: {
@@ -56,25 +55,3 @@ userSchema.methods.verifyPassword = function(password) {
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
-
-// create user and verify password example
-// const email = "testuser3@email.com";
-// const password = "password1234";
-// User.create({
-//   email,
-//   password
-// })
-//   .then(user => console.log({ user }))
-//   .then(() => User.findOne({ email }))
-//   .then(user => {
-//     return user.verifyPassword(password);
-//   })
-//   .then(isPasswordVerified => {
-//     console.log({ isPasswordVerified });
-//     return User.deleteOne({ email });
-//   })
-//   .then(() => mongoose.connection.close())
-//   .catch(error => {
-//     console.log(error);
-//     mongoose.connection.close();
-//   });
