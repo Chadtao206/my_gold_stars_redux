@@ -1,3 +1,12 @@
+const mongoose = require("mongoose");
+let { Project } = require("../models");
+
+mongoose.connect(process.env.MONGODB_URI || "gold_stars_db", {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+});
+
 const projects = [
   {
     project: "one",
@@ -98,3 +107,14 @@ const projects = [
     img: ""
   }
 ];
+
+Project.deleteMany({})
+  .then(() => Project.create(projects))
+  .then(data => {
+    console.log(data.length + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
