@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 let db = require("../models");
 
 mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://heroku_jsm6xkvq:i1pfdu2m0tqpbfo3010cq62m2@ds259878.mlab.com:59878/heroku_jsm6xkvq",
+  process.env.MONGODB_URI || "mongodb://localhost/gold_star_db",
   {
     useNewUrlParser: true,
     useCreateIndex: true,
