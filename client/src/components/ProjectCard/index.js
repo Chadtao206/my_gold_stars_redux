@@ -2,15 +2,37 @@ import React, { useState } from "react";
 import EditModal from "../EditModal";
 import Placehold from "../../assets/project_img_placeholder.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faImages } from "@fortawesome/free-solid-svg-icons";
 import octocat from "../../assets/octocat.png";
+import { updateProjectDesc, updateProjectImg } from "../../utils/API";
 import "./index.css";
 
-export default ({ project, owner }) => {
+export default ({ project, owner, reload }) => {
   const [show, setShow] = useState(false);
+  const [edit, setEdit] = useState("");
+
+  const handleUpdate = (id, desc) => {
+    edit === "desc"
+      ? updateProjectDesc(id, desc).then(() => reload())
+      : updateProjectImg(id, desc).then(() => reload());
+  };
+  const editPic = () => {
+    setEdit("pic");
+    setShow(true);
+  };
+  const editDesc = () => {
+    setEdit("desc");
+    setShow(true);
+  };
   return (
     <>
-      <EditModal setShow={setShow} show={show} project={project} />
+      <EditModal
+        setShow={setShow}
+        show={show}
+        project={project}
+        update={handleUpdate}
+        edit={edit}
+      />
       <div className="flip-card col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-3">
         <div className="flip-card-inner" style={{ height: "40vh" }}>
           {/* front of card */}
@@ -76,8 +98,9 @@ export default ({ project, owner }) => {
               <a href={project.url} target="_blank" rel="noopener noreferrer">
                 <img
                   className="img-fluid"
-                  src={Placehold}
+                  src={project.img || Placehold}
                   alt="project img placeholder"
+                  style={{ width: "100%", maxHeight: "100%" }}
                 />
               </a>
             </div>
@@ -90,12 +113,21 @@ export default ({ project, owner }) => {
                 />
               </a>
               {owner ? (
-                <FontAwesomeIcon
-                  onClick={() => setShow(true)}
-                  icon={faEdit}
-                  size="2x"
-                  style={{ color: "green" }}
-                />
+                <>
+                  <FontAwesomeIcon
+                    className="ml-2 mr-2"
+                    onClick={editDesc}
+                    icon={faEdit}
+                    size="2x"
+                    style={{ color: "green", cursor: "cell" }}
+                  />
+                  <FontAwesomeIcon
+                    onClick={editPic}
+                    icon={faImages}
+                    size="2x"
+                    style={{ color: "orange", cursor: "cell" }}
+                  />
+                </>
               ) : (
                 ""
               )}
